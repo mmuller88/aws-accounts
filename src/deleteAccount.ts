@@ -1,6 +1,6 @@
 import * as AWS from 'aws-sdk';
 
-AWS.config.update({ region: 'us-east-1' });
+// AWS.config.update({ region: 'us-east-1' });
 
 const org = new AWS.Organizations();
 

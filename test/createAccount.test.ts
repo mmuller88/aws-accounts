@@ -1,7 +1,8 @@
-// import * as AWS from 'aws-sdk';
-// @ts-ignore
-import * as AWS from '../__mocks__/aws-sdk';
-import { createAccountResponse } from '../__mocks__/aws-sdk';
+import {
+  createAccountResponse,
+  listAccountsResponse,
+  moveAccountResponse,
+} from '../__mocks__/aws-sdk';
 import * as createAccount from '../src/createAccount';
 // AWS.config.update({ region: 'us-west-2' });
 
@@ -17,6 +18,10 @@ describe('createAccount call', () => {
   });
 
   test('would work', async () => {
+    moveAccountResponse.mockRejectedValueOnce(
+      new Error(`You specified an account that doesn't exist`),
+    );
+
     try {
       await createAccount.moveAccountToOU(fakeAccountID);
     } catch (error) {
@@ -24,21 +29,23 @@ describe('createAccount call', () => {
         expect((error as Error).message).toContain(
           'You specified an account that doesn',
         );
-      } else {
-        fail();
+        return;
       }
     }
+    fail();
   });
 
   test('get accountId from invalid accountName', async () => {
+    listAccountsResponse.mockRejectedValueOnce(new Error('Account not found'));
+
     try {
       await createAccount.getAccountIdFromName(fakeEnvName);
     } catch (error) {
       if ((error as Error).message) {
         expect((error as Error).message).toContain('not found');
-      } else {
-        fail();
+        return;
       }
     }
+    fail();
   });
 });
