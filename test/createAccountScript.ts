@@ -2,7 +2,7 @@ import {
   createAccount,
   moveAccountToOU,
   getAccountIdFromName,
-} from '../src/createSandboxImpl';
+} from '../src/createAccount';
 
 /**
  * @param sandboxId per argument like `./node_modules/.bin/ts-node ./scripts/${fileName} test123`
@@ -29,7 +29,7 @@ export async function main(): Promise<void> {
 await main();
 
 function usage() {
-  const fileName = 'createSandbox.ts';
+  const fileName = 'createAccount.ts';
   console.log(
     `example call: ./node_modules/.bin/ts-node ./scripts/${fileName} test123`,
   );

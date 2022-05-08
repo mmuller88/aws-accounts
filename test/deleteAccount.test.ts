@@ -1,13 +1,13 @@
 import * as AWS from 'aws-sdk';
-import * as deleteSandbox from '../scripts/deleteAccount';
+import * as deleteAccount from '../src/deleteAccount';
 AWS.config.update({ region: 'us-west-2' });
 
-const fileName = 'deleteSandbox.js';
+const fileName = 'deleteAccount.js';
 
 describe(`${fileName} call`, () => {
   test('would work', async () => {
     try {
-      await deleteSandbox.deleteAccount('222333193111');
+      await deleteAccount.deleteAccount('222333193111');
     } catch (error) {
       if ((error as Error).message) {
         expect((error as Error).message).toContain(

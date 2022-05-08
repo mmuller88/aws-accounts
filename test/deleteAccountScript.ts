@@ -1,4 +1,4 @@
-import { deleteAccount } from './deleteSandboxImpl';
+import { deleteAccount } from '../src/deleteAccount';
 
 /**
  * @param sandboxId per argument like `./node_modules/.bin/ts-node ./scripts/${fileName} test123`
@@ -19,7 +19,7 @@ export async function main(): Promise<void> {
 await main();
 
 function usage() {
-  const fileName = 'deleteSandbox.ts';
+  const fileName = 'deleteAccount.ts';
   console.log(
     `example call: ./node_modules/.bin/ts-node ./scripts/${fileName} 981237193111`,
   );
