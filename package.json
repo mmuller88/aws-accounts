@@ -16,7 +16,9 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "package-all": "npx projen package-all",
+    "package:dotnet": "npx projen package:dotnet",
     "package:js": "npx projen package:js",
+    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -71,6 +73,12 @@
   "bundledDependencies": [
     "aws-sdk"
   ],
+  "keywords": [
+    "account",
+    "audit",
+    "aws-sdk",
+    "organizations"
+  ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
@@ -118,7 +126,16 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "aws-accounts",
+        "module": "aws_accounts"
+      },
+      "dotnet": {
+        "namespace": "com.github.mmuller88",
+        "packageId": "com.github.mmuller88.awsAccounts"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"

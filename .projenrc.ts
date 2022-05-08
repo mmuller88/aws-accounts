@@ -18,11 +18,15 @@ const project = new cdk.JsiiProject({
   bundledDeps: ['aws-sdk'],
   devDeps: ['commithelper', 'husky', 'lint-staged'],
   release: true,
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  keywords: ['audit', 'organizations', 'account', 'aws-sdk'],
+  publishToPypi: {
+    distName: 'aws-accounts',
+    module: 'aws_accounts',
+  },
+  publishToNuget: {
+    dotNetNamespace: 'com.github.mmuller88',
+    packageId: 'com.github.mmuller88.awsAccounts',
+  },
 });
 
 project.prettier?.addIgnorePattern('.eslintrc.json');
