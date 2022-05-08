@@ -23,10 +23,10 @@ const project = new cdk.JsiiProject({
     distName: 'aws-accounts',
     module: 'aws_accounts',
   },
-  publishToNuget: {
-    dotNetNamespace: 'com.github.mmuller88',
-    packageId: 'com.github.mmuller88.awsAccounts',
-  },
+  // publishToNuget: {
+  //   dotNetNamespace: 'com.github.mmuller88',
+  //   packageId: 'com.github.mmuller88.awsAccounts',
+  // },
 });
 
 project.prettier?.addIgnorePattern('.eslintrc.json');
