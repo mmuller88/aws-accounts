@@ -15,7 +15,7 @@ const project = new cdk.JsiiProject({
       trailingComma: TrailingComma.ALL,
     },
   },
-  deps: ['aws-sdk'],
+  bundledDeps: ['aws-sdk'],
   devDeps: ['commithelper', 'husky', 'lint-staged'],
   release: true,
 
