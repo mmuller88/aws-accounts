@@ -22,7 +22,7 @@ export async function main(): Promise<void> {
   const accountId = await getAccountIdFromName(accountName);
   console.log(accountId);
   if (accountId) {
-    await moveAccountToOU(accountId);
+    await moveAccountToOU(accountId, 'ou-zblx-w7yw0qge');
   }
 }
 

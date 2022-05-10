@@ -19,6 +19,10 @@ const project = new cdk.JsiiProject({
   devDeps: ['commithelper', 'husky', 'lint-staged'],
   release: true,
   keywords: ['audit', 'organizations', 'account', 'aws-sdk'],
+  autoApproveOptions: {
+    allowedUsernames: ['aws-cdk-automation', 'github-bot'],
+    secret: 'GITHUB_TOKEN',
+  },
   publishToPypi: {
     distName: 'aws-accounts',
     module: 'aws_accounts',

@@ -30,11 +30,14 @@ export async function getAccountIdFromName(accountName: string) {
   throw Error(`Account with name ${accountName} not found`);
 }
 
-export async function moveAccountToOU(accountId: string) {
+export async function moveAccountToOU(
+  accountId: string,
+  destinationOU: string,
+) {
   const moveAccountRequestParams: AWS.Organizations.Types.MoveAccountRequest = {
     AccountId: accountId,
     SourceParentId: 'r-zblx', // root
-    DestinationParentId: 'ou-zblx-w7yw0qge', // neatleaf-sandboxes
+    DestinationParentId: destinationOU,
   };
   console.debug(
     `moveAccountRequestParams=${JSON.stringify(moveAccountRequestParams)}`,

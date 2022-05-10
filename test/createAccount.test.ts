@@ -23,7 +23,7 @@ describe('createAccount call', () => {
     );
 
     try {
-      await createAccount.moveAccountToOU(fakeAccountID);
+      await createAccount.moveAccountToOU(fakeAccountID, 'ou-zblx-w7yw0qge');
     } catch (error) {
       if ((error as Error).message) {
         expect((error as Error).message).toContain(
